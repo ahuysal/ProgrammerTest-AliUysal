@@ -1,16 +1,18 @@
+/*
 #######################################################
 ## Author:      Ali Uysal                            ##
 ## Date:        08/26/19                             ##
 ## Description: Solution to the assessment by Cherre ##
 #######################################################
+*/
 
-# Delete all records in the frequent_browsers table
+-- Delete all records in the frequent_browsers table
 delete from frequent_browsers;
 
-# Commit after deletion
+-- Commit after deletion
 commit;
 
-# Insert into the frequent_browsers table the top ten people who have visited the most sites
+-- Insert into the frequent_browsers table the top ten people who have visited the most sites
 insert into frequent_browsers
 select v.personId person_id, count(v.siteId) num_sites_visited
   from visits v 
@@ -22,8 +24,8 @@ select v.personId person_id, count(v.siteId) num_sites_visited
  order by count(v.siteId) desc
  limit 10;
  
-# Commit after insert
+-- Commit after insert
 commit;
  
-# See top ten people who have visited the most sites
+-- See top ten people who have visited the most sites
 select * from frequent_browsers;
