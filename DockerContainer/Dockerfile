@@ -1,5 +1,6 @@
 FROM alpine:3.4
 RUN apk add --update sqlite
+RUN apk add --update py3-pip
 RUN mkdir /db
 WORKDIR /db
 
