@@ -13,6 +13,3 @@ COPY Solution_AliUysal_082619.sql /db/
 COPY rest-app/app.py /db/
 
 EXPOSE 5000
-
-#ENTRYPOINT ["sqlite3"]
-#CMD ["testdb.db"]
