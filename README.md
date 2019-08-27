@@ -55,3 +55,11 @@ python app.py
 ```
 
 - Open a browser and go to http://localhost:5000/Visits
+
+or
+
+- Open a new command line interface and type below command
+
+```
+curl -XGET http://127.0.0.1:5000/Visits
+```
