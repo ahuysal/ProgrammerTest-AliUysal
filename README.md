@@ -26,19 +26,32 @@ docker run -it -p 5000:5000 aliuysal/cherre_sqlitedb
 
 ## Run
 
-- SQL Script
+### SQL Script
+
+- Connect to the testdb.db
 
 ```
-
+sqlite3 testdb.db
 ```
 
+- Turn on display for table column names
+
+```
+.headers on
+```
+
+- Run the SQL script
+
+```
+.read Solution_AliUysal_082619.sql
+```
+
+### Python API
+
+- After launching the Docker container, simply run the below command
 
 ```
 python app.py
 ```
 
-then go to http://localhost:5000/departments
-
-you could drill down by deparments too!
-
-try http://localhost:5000/dept/police
+- Then open a browser and go to http://localhost:5000/Visits
