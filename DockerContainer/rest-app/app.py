@@ -19,9 +19,11 @@ class Visits(Resource):
         conn.execute("delete from frequent_browsers")
         conn.execute("insert into frequent_browsers select v.personId person_id, count(v.siteId) num_sites_visited from visits v join people p on v.personId = p.id join sites s on v.siteId = s.id group by v.personId order by count(v.siteId) desc limit 10")
         query = conn.execute("select * from frequent_browsers")
-        return {'visits': [i[0] for i in query.cursor.fetchall()]}
 
-api.add_resource(Visits, '/departments')
+        result = {'data': [dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]}
+        return result
+
+api.add_resource(Visits, '/Visits')
 
 if __name__ == '__main__':
-     app.run()
+     app.run(host="0.0.0.0")
